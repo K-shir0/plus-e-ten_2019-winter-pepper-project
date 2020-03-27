@@ -1,0 +1,35 @@
+topic: ~tenji()
+language: jpj
+
+concept:(stop)[$output=0]
+concept:(stopword)[もういい やめる うるさい いいえ No だいじょうぶ]
+
+
+
+concept:(toilet)[トイレ toilet]
+u:(~toilet)トイレは階段からみて奥側にトイレがあります。 ~stop
+
+concept:(web)[ウェブ サイト WEB]
+u:(~web)ウェブは３階に展示してあります ~stop
+
+concept:(it)[it あいてぃー]
+u:(~it)あいてぃーは4階に展示してあります。 ~stop
+
+
+
+concept:(tenji)[てんじ あんない]
+u:(~tenji)ぺっぱーが案内します、聞きたいことは何ですか？
+    u1:(~web)ウェブは３階に展示してあります ~stop
+    u1:(~it)あいてぃーは4階に展示してあります。 ~stop
+    u1:(~stopword)わかりました ~stop
+    u1:(~toilet)トイレは階段からみて奥側にトイレがあります。 ~stop
+    u1:(e:Dialog/NotSpeaking5)ITでか？Webですか？それともやめますか？^stayInScope
+
+# Defining extra concepts out of words or group of words
+#concept:(hello) [hello hi hey "good morning" greetings]
+
+# Catching inputs and triggering outputs
+#u:(e:onStart) $onStopped=1
+
+# Replying to speech
+#u:(~hello) ~hello
